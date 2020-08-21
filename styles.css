@@ -1,0 +1,36 @@
+html {
+    background-image: -moz-linear-gradient(45deg, rgb(100, 110, 180), rgb(100, 110, 160));
+}
+
+.header {
+    margin: 25px auto 25px auto;
+    text-align: center;
+    font-family: serif;
+    color: rgb(220, 200, 250);
+}
+
+.play-area {
+    background-color: rgb(220, 200, 250);
+    width: 80%;
+    height: 80%;
+    margin: 25px auto 25px auto;
+}
+
+.horizontal-flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+.vertical-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+}
+
+.option {
+    margin: 25px auto 25px auto;
+}

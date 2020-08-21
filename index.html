@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock-Paper-Scissors</title>
+
+    <script>
+        let options = {
+            'rock': 'paper',
+            'paper': 'scissors',
+            'scissors': 'rock'
+        };
+        let record = {
+            'win': 0,
+            'loss': 0
+        };  
+
+        function computerPlay() {
+            let randIndex = Math.floor(Math.random()*2);
+            return Object.keys(options)[randIndex];
+        };
+
+        function playRound(playerSelection, computerSelection) {
+            if(playerSelection === computerSelection) {
+                return `Tie! Both players used ${playerSelection}`;
+            } else if (options[playerSelection] === computerSelection) {
+                record['loss'] += 1;
+                return `Sorry, you lose ${options[playerSelection]} beats ${playerSelection}.`
+            } else {
+                record['win'] += 1;
+                return `Congrats you win, ${playerSelection} beats ${options[playerSelection]}.`
+            }
+        };
+
+        function getUserInput() {
+            while(true) {
+                let userInput = prompt("Please enter Rock, Paper, or Scissors: ");
+
+                if(Object.keys(options).indexOf(userInput.toLowerCase()) !== -1) {
+                    return userInput.toLowerCase();
+                } else {
+                    console.log("Input must be Rock, Paper, or Scissors.");
+                }
+            };
+        };
+
+        function game() {
+            while(Object.values(record).reduce((a, b) => a + b) < 5) {
+                let userInput = getUserInput();
+                let computerInput = computerPlay();
+                console.log(userInput);
+                console.log(computerInput);
+                console.log(playRound(userInput, computerInput));
+                
+            };
+            console.log(`Final Score: Wins-${record['win']} Losses-${record['loss']}`)
+        };
+    </script>
+</head>
+
+<body>  
+    <h1 class="header">Rock Paper Scissors</h1>
+
+    <div class="play-area">
+        <div class="horizontal-flex-container">  
+            <div class="vertical-flex-container">
+                <img class="option" src="" alt="Rock">
+                <img class="option" src="" alt="Paper">
+                <img class="option" src="" alt="Scissors">
+            </div>      
+            <div class="vertical-flex-container">
+                <h3>Player</h3>
+                <h3 id="playerScore">{playerScore}</h3>
+            </div>
+            <img id="player-img" src="" alt="Players image">
+            <div class="vertical-flex-container">
+                <img id="vs-img" src="" alt="VS">
+            </div>
+            <img id="computer-img" src="" alt="Computers image">
+            <div class="vertical-flex-container">
+                <h3>Computer</h3>
+                <h3 id="computerScore">{computerScore}</h3>
+            </div>
+            <div class="vertical-flex-container">
+                <img class="option" src="" alt="Rock">
+                <img class="option" src="" alt="Paper">
+                <img class="option" src="" alt="Scissors">
+            </div> 
+        </div>
+    </div>
+</body>
+</html>
