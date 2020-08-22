@@ -11,8 +11,8 @@ html {
 
 .play-area {
     background-color: rgb(220, 200, 250);
-    width: 80%;
-    height: 80%;
+    width: 620px;
+    height: 375px;
     margin: 25px auto 25px auto;
 }
 
@@ -20,12 +20,13 @@ html {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 }
 
 .vertical-flex-container {
     display: flex;
     flex-direction: column;
+    flex-basis: 33%;
     align-items: center;
     justify-items: center;
     margin: auto;
@@ -33,4 +34,22 @@ html {
 
 .option {
     margin: 25px auto 25px auto;
+    padding: 0px 25px 0px 25px;
+    height: 125px;
+    width: 125px;
+}
+
+.option:hover {
+    border: skyblue solid 5px;
+    border-color: skyblue;
+    border-radius: 35px;
+}
+
+.spacer {
+    margin: 200px;
+}
+
+#result-box {
+    width: 250px;
+    text-align: center;
 }
